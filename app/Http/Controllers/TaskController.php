@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return response()->json(TaskResource::collection($tasks), 200);
     }
 
